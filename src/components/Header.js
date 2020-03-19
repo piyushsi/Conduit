@@ -17,22 +17,43 @@ const Header = () => {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="#myPage">
+
+            <a className="navbar-brand" href="/">
               Conduit
             </a>
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav navbar-right">
-              <li>
-                {" "}
-                <NavLink to="/">HOME</NavLink>
-              </li>
-              <li>
-                <NavLink to="/register">REGISTER</NavLink>
-              </li>
-              <li>
-                <NavLink to="/login">LOGIN</NavLink>
-              </li>
+              {Boolean(localStorage.isLoggedIn) ? (
+                <>
+                  <li>
+                    <NavLink to="/">HOME</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/profile">PROFILE</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/setting">SETTING</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/" onClick={localStorage.clear()}>
+                      Log out
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <NavLink to="/">HOME</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/register">REGISTER</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/login">LOGIN</NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

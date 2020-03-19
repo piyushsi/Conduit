@@ -49,9 +49,8 @@ h4 {
   font-weight: 200;
   background-color: white;
   width: 100%;
-  
 }
-.full_card{
+.full_card {
   width: 90%;
   overflow: unset;
 }
@@ -72,8 +71,10 @@ h4 {
   width: 14rem;
   z-index: 2;
   transform: rotate(90deg);
+  overflow: hidden;
+  height: 2rem;
 }
-.full_card .articles_tags{
+.full_card .articles_tags {
   right: -5rem;
 }
 /* top box */
@@ -82,48 +83,47 @@ h4 {
   color: white;
   padding: 3.5rem;
 }
- .tags {
+.tags {
   width: 30px;
   height: 40px;
   background: #2196f3;
   transition-property: width;
   transition-duration: 1s;
   position: fixed;
-  bottom:0;
+  bottom: 0;
   z-index: 3;
 }
 .all_tags {
   display: none;
   color: white;
   font-size: 2rem;
-  
 }
-.all_tags span{
-  border:1px solid white;
-  bottom: .5rem;
-  margin: .1rem;
+.all_tags span {
+  border: 1px solid white;
+  bottom: 0.5rem;
+  margin: 0.1rem;
   padding: 0rem 1rem;
   border-radius: 10px;
 }
-.all_tags span:hover{
+.all_tags span:hover {
   background-color: white;
   color: #2196f3;
   cursor: pointer;
 }
 .tags:hover {
   width: 100%;
-  padding:0rem 4rem;
-  overflow-y:scroll;
+  padding: 0rem 4rem;
+  overflow-y: scroll;
 }
 .tags:hover::-webkit-scrollbar {
- display: none;
+  display: none;
 }
-.tags:hover .all_tags{
+.tags:hover .all_tags {
   display: block;
 }
 .tag {
   margin-top: 1rem;
-  left:0;
+  left: 0;
   position: absolute;
   transform: rotate(270deg);
   color: white;
@@ -666,7 +666,8 @@ label {
 }
 
 .btn-box {
-  text-align: center;content: "Read it →";
+  text-align: center;
+  content: "Read it →";
   margin: 50px 0;
 }
 

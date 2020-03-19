@@ -27,8 +27,7 @@ function App() {
         <Route path="/sidebar">
           <Sidebar />
         </Route>
-
-        <Route path="/article">
+        <Route path="/article/:slug">
           <Article />
         </Route>
       </Switch>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 
 class Article extends Component {
   constructor() {
@@ -7,9 +6,7 @@ class Article extends Component {
     this.state = { data: null, null: null };
   }
   tags = t => {
-    fetch(
-      `https://conduit.productionready.io/api/articles/article-2-lknqyq`
-    )
+    fetch(`https://conduit.productionready.io/api/articles/article-2-lknqyq`)
       .then(res => res.json())
       .then(articles =>
         this.setState({
@@ -19,14 +16,16 @@ class Article extends Component {
   };
   componentDidMount() {
     fetch(
-        `https://conduit.productionready.io/api/articles/the-sole-reason-people-are-writing-posts-here-because-they-need-to-be-convinced-the-code-actually-works-282xh9`
-      )
-        .then(res => res.json())
-        .then(articles =>
-          this.setState({
-            data: articles
-          })
-        );
+      `https://conduit.productionready.io/api/articles/${
+        document.location.href.split("/")[4]
+      }`
+    )
+      .then(res => res.json())
+      .then(articles =>
+        this.setState({
+          data: articles
+        })
+      );
   }
   render() {
     return (
@@ -41,25 +40,25 @@ class Article extends Component {
         </div>
         <br />
 
-
         <div className="card_article">
-                <div className="card card-1 full_card">
-                  <div className="articles_tags">
-                    <span>{this.state.data && this.state.data.article.author.username}</span>
-                  </div>
-                  <span className="date">
-                    {this.state.data && this.state.data.article.createdAt
-                      .split("T")
-                      .join("/")
-                      .substring(0, 19)}
-                  </span>
-                  <div className="inner_card">
-                    <h2>{this.state.data && this.state.data.article.title}</h2>
-                    <h4>{this.state.data &&this.state.data.article.description}</h4>
-
-                  </div>
-
-                </div>
+          <div className="card card-1 full_card">
+            <div className="articles_tags">
+              <span>
+                {this.state.data && this.state.data.article.author.username}
+              </span>
+            </div>
+            <span className="date">
+              {this.state.data &&
+                this.state.data.article.createdAt
+                  .split("T")
+                  .join("/")
+                  .substring(0, 19)}
+            </span>
+            <div className="inner_card">
+              <h2>{this.state.data && this.state.data.article.title}</h2>
+              <h4>{this.state.data && this.state.data.article.description}</h4>
+            </div>
+          </div>
         </div>
       </div>
     );

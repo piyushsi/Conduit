@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 class Home extends Component {
   constructor() {
@@ -55,8 +55,7 @@ class Home extends Component {
                 return (
                   <span
                     onClick={() =>
-                      this.tags({ t }) &&
-                      this.setState({ null: null })
+                      this.tags({ t }) && this.setState({ null: null })
                     }
                   >
                     {t}
@@ -85,7 +84,9 @@ class Home extends Component {
                     <h4>{a.description}</h4>
                   </div>
 
-                  <button class="button_x slide">&nbsp;</button>
+                  <Link to={`/article/${a.slug}`}>
+                    <button className="button_x slide">&nbsp;</button>
+                  </Link>
                 </div>
               );
             })}
